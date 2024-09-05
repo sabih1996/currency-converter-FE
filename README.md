@@ -64,11 +64,11 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Technologies Used
-- React.js: JavaScript library for building user  interfaces.
-- Ant Design (AntD): UI component library for React.
-- Axios: Promise-based HTTP client for making API requests.
-- SCSS: For styling.
-- React Hooks: To manage state and side effects.
+- **React.js:** JavaScript library for building user  interfaces.
+- **Ant Design (AntD):** UI component library for React.
+- **Axios:** Promise-based HTTP client for making API requests.
+- **SCSS:** For styling.
+- **React Hooks:** To manage state and side effects.
 
 ## Project Structure
 
@@ -83,7 +83,7 @@ currency-converter-FE/
 └── package.json             # Project dependencies and scripts
 ```
 ## Usage
-1) Currency Selection: The user selects a source currency and a target currency using the dropdowns powered by Ant Design's `<Select>` component.
-2) Amount Input: Users can input the amount they wish to convert.
-3) Conversion: After selecting currencies and entering the amount, the application fetches the exchange rate and shows the converted value.
-4) Live Rates: The app uses live currency exchange rates fetched from an external API.
+1) **Currency Selection:** The user selects a source currency and a target currency using the dropdowns powered by Ant Design's `<Select>` component.
+2) **Amount Input:** Users can input the amount they wish to convert.
+3) **Conversion:** After selecting currencies and entering the amount, the application fetches the exchange rate and shows the converted value.
+4) **Live Rates:** The app uses live currency exchange rates fetched from an external API.
