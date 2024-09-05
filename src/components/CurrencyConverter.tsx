@@ -56,10 +56,6 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
     }
   }, [amount, sourceCurrency, targetCurrency]);
 
-  useEffect(() => {
-    handleConvert();
-  }, [amount, handleConvert]);
-
   const options = currenciesList
     .filter((currency: any) => currency.active) // Filter active currencies
     .map((currency: any) => (
@@ -112,13 +108,13 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
         </Form.Item>
 
         <Form.Item>
-          <Button size="large" type="primary" htmlType="submit">
+          <Button size="large" type="primary" htmlType="submit" block>
             Convert
           </Button>
         </Form.Item>
       </Form>
 
-      {convertedValue && (
+      {convertedValue && amount > 0 && (
         <Card
           style={{ marginTop: 20, textAlign: "center" }}
           bordered={false}
