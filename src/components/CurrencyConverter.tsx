@@ -11,7 +11,7 @@ interface CurrencyConverterProps {}
 const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
   const [sourceCurrency, setSourceCurrency] = useState<string>("USD");
   const [targetCurrency, setTargetCurrency] = useState<string>("EUR");
-  const [amount, setAmount] = useState<number>(1);
+  const [amount, setAmount] = useState<number>(0);
   const [convertedValue, setConvertedValue] = useState<string>("");
   const [currenciesList, setCurreciesList] = useState([]);
 
