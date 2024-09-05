@@ -29,7 +29,16 @@ To run this project locally, follow these steps:
 $ git clone <repository-url>
 $ cd currency-converter-FE
 ```
-2) Install dependencies using npm or yarn:
+2) Create .env file at root level and replace these env varables with yours
+```
+REACT_APP_API_KEY=
+REACT_APP_CSRF_TOKEN_ENDPOINT=
+REACT_APP_CURRENCY_CONVERT_ENDPOINT=
+REACT_APP_CURRENCY_SERVICE_URL=
+REACT_APP_CURRENCY_API_KEY=
+
+```
+3) Install dependencies using npm or yarn:
 
 ```bash
 npm install
@@ -38,7 +47,8 @@ or
 ```bash
 yarn install
 ```
-Start the development server:
+
+4) Start the development server:
 
 ```bash
 npm start
@@ -67,6 +77,7 @@ currency-converter-FE/
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/          # Reusable components
+│   ├── utils/               # utilities 
 │   ├── App.js               # Main entry component
 │   ├── index.js             # Main file
 └── package.json             # Project dependencies and scripts
