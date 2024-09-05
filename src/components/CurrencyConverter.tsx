@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Form, Input, Button, Select, message, Card, Typography } from "antd";
 import axios from "axios";
+import { fetchCsrfToken } from "../utils/csrfToken.util";
 
 const { Option } = Select;
 const { Title, Text } = Typography;
@@ -18,26 +19,16 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
     (async () => {
       try {
         const res = await axios.get(
-          `${process.env.REACT_APP_API_KEY}${process.env.REACT_APP_CSRF_TOKEN_ENDPOINT}`
-        );
-        localStorage.setItem("csrfToken", res.data.csrfToken);
-      } catch (error) {
-        message.error("Error fetching CSRF token");
-      }
-    })();
-    (async () => {
-      try {
-        const res = await axios.get(
           `${process.env.REACT_APP_CURRENCY_SERVICE_URL}`,
           {
             headers: {
-              Authorization: `ApiKey e0266e8aa1de72fa3cf6f5a8359ca10d6df1be2ca6735032b463c23888542cca`,
+              Authorization: `ApiKey ${process.env.REACT_APP_CURRENCY_API_KEY}`,
             },
           }
         );
         setCurreciesList(res.data);
       } catch (error) {
-        message.error("Error fetching CSRF token");
+        message.error("Error fetching currencies list");
       }
     })();
   }, []);
@@ -57,8 +48,11 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
         );
         setConvertedValue(response.data.convertedAmount);
       }
-    } catch (error) {
-      message.error("Error converting currency");
+    } catch (error: any) {
+      if (error.response.data.status === 403) {
+        await fetchCsrfToken();
+        handleConvert();
+      }
     }
   }, [amount, sourceCurrency, targetCurrency]);
 
