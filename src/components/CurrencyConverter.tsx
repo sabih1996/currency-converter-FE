@@ -6,9 +6,7 @@ import { fetchCsrfToken } from "../utils/csrfToken.util";
 const { Option } = Select;
 const { Title, Text } = Typography;
 
-interface CurrencyConverterProps {}
-
-const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
+export const CurrencyConverter = () => {
   const [sourceCurrency, setSourceCurrency] = useState<string>("USD");
   const [targetCurrency, setTargetCurrency] = useState<string>("EUR");
   const [amount, setAmount] = useState<number>(0);
@@ -63,6 +61,7 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
         {currency.code}
       </Option>
     ));
+
   return (
     <div>
       <Form layout="vertical" onFinish={handleConvert}>
@@ -131,5 +130,3 @@ const CurrencyConverter: React.FC<CurrencyConverterProps> = () => {
     </div>
   );
 };
-
-export default CurrencyConverter;

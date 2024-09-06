@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { Layout, Typography } from "antd";
-import CurrencyConverter from "./components/CurrencyConverter";
+import { CurrencyConverter } from "./components/CurrencyConverter";
 import { fetchCsrfToken } from "./utils/csrfToken.util";
 
 const { Header, Content } = Layout;
 const { Title } = Typography;
-const App: React.FC = () => {
+
+export const App = () => {
+
   useEffect(() => {
     fetchCsrfToken();
   }, []);

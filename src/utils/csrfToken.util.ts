@@ -1,4 +1,4 @@
-const fetchCsrfToken = async () => {
+export const fetchCsrfToken = async () => {
   try {
     const response = await fetch(
       `${process.env.REACT_APP_API_KEY}${process.env.REACT_APP_CSRF_TOKEN_ENDPOINT}`,
@@ -13,8 +13,7 @@ const fetchCsrfToken = async () => {
   }
 };
 
-const getCsrfTokenFromStorage = () => {
+export const getCsrfTokenFromStorage = () => {
   return localStorage.getItem("csrfToken");
 };
 
-export { fetchCsrfToken, getCsrfTokenFromStorage };
